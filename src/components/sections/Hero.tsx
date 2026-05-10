@@ -56,13 +56,13 @@ export function Hero({ heroField }: HeroProps) {
 
   return (
     <header id="top" className="relative min-h-screen flex items-center overflow-hidden">
-      <img 
+      <img
         ref={imageRef}
-        src={heroField} 
-        alt="Современное мини-футбольное поле с освещением" 
-        width={1920} 
+        src={heroField}
+        alt="Современное мини-футбольное поле с освещением"
+        width={1920}
         height={1088}
-        className="absolute inset-0 w-full h-full object-cover" 
+        className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-hero" />
       <div className="container relative z-10 text-primary-foreground py-32">
@@ -83,7 +83,7 @@ export function Hero({ heroField }: HeroProps) {
           <Button size="lg" className="bg-gradient-accent text-accent-foreground hover:opacity-90 font-semibold text-base h-14 px-8">
             Забронировать поле <ChevronRight className="ml-1 w-4 h-4" />
           </Button>
-          <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 h-14 px-8">
+          <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 hover:text-white h-14 px-8">
             Узнать о проекте
           </Button>
         </div>
