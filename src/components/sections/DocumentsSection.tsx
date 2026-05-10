@@ -66,22 +66,6 @@ export function DocumentsSection() {
                 Все документы доступны для просмотра и скачивания. Вы можете изучить детали проекта, поделиться материалами с партнёрами или использовать их для анализа.
               </p>
 
-              <div className="space-y-3 mb-8">
-                {[
-                  "Полный доступ к документам",
-                  "Возможность скачивания",
-                  "Регулярные обновления",
-                  "Поддержка всех форматов",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <CheckCircle2 className="w-3 h-3 text-primary" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">{item}</span>
-                  </div>
-                ))}
-              </div>
-
               <a
                 href="https://drive.google.com/drive/folders/1q0OXU3Q-y0_-WVXMtM4Ca84nMFa6PBIa"
                 target="_blank"
