@@ -3,6 +3,8 @@ import { Button } from "@/components/layout/button";
 import { Card } from "@/components/data-display/card";
 import { Badge } from "@/components/layout/badge";
 import { Navigation, Hero, VideoSection, AboutSection, FeaturesSection, DocumentsSection, ContactSection, Footer } from "@/components/sections";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { useFadeInUp, useStaggerFadeIn } from "@/hooks/useGsapAnimation";
 import heroField from "@/assets/hero-field.jpg";
 import logo from "@/assets/logo.png";
 import fieldVideo from "@/assets/prewiev.MP4";
@@ -30,6 +32,17 @@ const advantages = [
 
 export default function Index() {
   const [scrolled, setScrolled] = useState(false);
+  
+  const problemHeaderRef = useFadeInUp();
+  const problemCardsRef = useStaggerFadeIn(0.1);
+  const problemStatsRef = useStaggerFadeIn(0.15);
+  
+  const audienceHeaderRef = useFadeInUp();
+  const audienceCardsRef = useStaggerFadeIn(0.15);
+  const audienceDemoRef = useFadeInUp(0.3);
+  
+  const advantagesLeftRef = useFadeInUp(0.2);
+  const advantagesRightRef = useStaggerFadeIn(0.1);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -46,7 +59,7 @@ export default function Index() {
 
       <section id="problem" className="py-24 md:py-32 bg-gradient-dark text-primary-foreground">
         <div className="container">
-          <div className="max-w-3xl mb-16">
+          <div ref={problemHeaderRef} className="max-w-3xl mb-16">
             <Badge className="bg-accent text-accent-foreground mb-4">
               <BarChart3 className="w-3 h-3 mr-1" /> Опрос · 44 респондента
             </Badge>
@@ -58,16 +71,16 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+          <div ref={problemCardsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
             {problems.map((p) => (
               <div key={p.text} className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div className="font-display text-5xl font-black bg-gradient-accent bg-clip-text text-transparent mb-3">{p.value}</div>
+                <AnimatedCounter value={p.value} className="font-display text-5xl font-black bg-gradient-accent bg-clip-text text-transparent mb-3" />
                 <p className="text-primary-foreground/80 text-sm leading-relaxed">{p.text}</p>
               </div>
             ))}
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-6">
+          <div ref={problemStatsRef} className="grid lg:grid-cols-3 gap-6">
             <Card className="p-8 bg-primary-foreground/5 border-primary-foreground/10 backdrop-blur-sm">
               <div className="text-sm uppercase tracking-wider text-accent mb-3 font-semibold">Частота игры</div>
               <div className="font-display text-3xl font-black mb-4 text-primary-foreground">75% играют 2+ раз в неделю</div>
@@ -136,14 +149,14 @@ export default function Index() {
 
       <section id="audience" className="py-24 md:py-32 bg-secondary">
         <div className="container">
-          <div className="max-w-3xl mb-16">
+          <div ref={audienceHeaderRef} className="max-w-3xl mb-16">
             <Badge variant="secondary" className="mb-4 bg-background">Целевая аудитория · STP</Badge>
             <h2 className="font-display text-4xl md:text-5xl font-extrabold mb-6 text-balance">
               Для кого мы строим
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-6 mb-16">
+          <div ref={audienceCardsRef} className="grid lg:grid-cols-3 gap-6 mb-16">
             {audience.map((a, i) => (
               <Card key={a.title} className="p-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 font-display text-[8rem] font-black text-primary/5 leading-none">0{i + 1}</div>
@@ -154,7 +167,7 @@ export default function Index() {
             ))}
           </div>
 
-          <Card className="p-8 md:p-12 bg-background">
+          <Card ref={audienceDemoRef} className="p-8 md:p-12 bg-background">
             <h3 className="font-display text-2xl font-bold mb-8">Демография аудитории · опрос</h3>
             <div className="grid md:grid-cols-2 gap-12">
               <div>
@@ -207,7 +220,7 @@ export default function Index() {
       <section className="py-24 md:py-32">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16">
-            <div>
+            <div ref={advantagesLeftRef}>
               <Badge variant="secondary" className="mb-4">Преимущества</Badge>
               <h2 className="font-display text-4xl md:text-5xl font-extrabold mb-6 text-balance">
                 Почему «11 метров» обыгрывает конкурентов
@@ -220,7 +233,7 @@ export default function Index() {
                 Забронировать слот
               </Button>
             </div>
-            <div className="space-y-3">
+            <div ref={advantagesRightRef} className="space-y-3">
               {advantages.map((a) => (
                 <div key={a.title} className="flex gap-4 p-5 rounded-xl hover:bg-secondary transition-smooth">
                   <CheckCircle2 className="w-6 h-6 text-primary-glow shrink-0 mt-0.5" />

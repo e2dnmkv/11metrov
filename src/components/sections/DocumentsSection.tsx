@@ -2,6 +2,7 @@ import { Badge } from "@/components/layout/badge";
 import { Button } from "@/components/layout/button";
 import { Card } from "@/components/data-display/card";
 import { CheckCircle2, FolderOpen, ExternalLink, FileText, BarChart3, Calculator, FileCheck } from "lucide-react";
+import { useStaggerFadeIn, useFadeInUp, useSlideInFromLeft, useSlideInFromRight } from "@/hooks/useGsapAnimation";
 
 const documents = [
   {
@@ -31,6 +32,11 @@ const documents = [
 ];
 
 export function DocumentsSection() {
+  const headerRef = useFadeInUp();
+  const cardsRef = useStaggerFadeIn(0.1);
+  const leftRef = useSlideInFromLeft();
+  const rightRef = useSlideInFromRight();
+
   return (
     <section id="documents" className="py-24 md:py-32 bg-secondary relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -89,7 +95,7 @@ export function DocumentsSection() {
               </a>
             </div>
 
-            <div className="space-y-4">
+            <div ref={rightRef} className="space-y-4">
               <div className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">

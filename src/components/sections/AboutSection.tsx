@@ -1,11 +1,16 @@
 import { Badge } from "@/components/layout/badge";
 import { Card } from "@/components/data-display/card";
+import { useFadeInUp, useStaggerFadeIn } from "@/hooks/useGsapAnimation";
 
 export function AboutSection() {
+  const headerRef = useFadeInUp();
+  const leftRef = useFadeInUp(0.2);
+  const cardsRef = useStaggerFadeIn(0.15);
+
   return (
     <section id="about" className="py-24 md:py-32">
       <div className="container grid lg:grid-cols-2 gap-16 items-center">
-        <div>
+        <div ref={leftRef}>
           <Badge variant="secondary" className="mb-4">Суть проекта</Badge>
           <h2 className="font-display text-4xl md:text-5xl font-extrabold mb-6 text-balance">
             Спорт уровня клубной арены — рядом с домом
@@ -31,7 +36,7 @@ export function AboutSection() {
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div ref={cardsRef} className="space-y-4">
           {[
             { n: "01", t: "Дефицит инфраструктуры", d: "Любители играют на изношенных полях или платят за дорогие манежи. Мы заполняем нишу." },
             { n: "02", t: "Рост любительских лиг", d: "Корпоративные турниры и команды выходного дня растут — а сервис муниципальных площадок отстаёт." },
