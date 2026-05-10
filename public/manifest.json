@@ -1,0 +1,17 @@
+{
+  "name": "11 метров — Комплекс мини-футбольных полей",
+  "short_name": "11 метров",
+  "description": "Современный комплекс из 4 полей для мини-футбола 5×5",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
