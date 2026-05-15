@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  assetsInclude: ['**/*.MP4', '**/*.mp4'],
+  assetsInclude: ['**/*.MP4', '**/*.mp4', '**/*.MOV'],
   server: {
     host: "::",
     port: 8080,

@@ -7,7 +7,7 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { useFadeInUp, useStaggerFadeIn } from "@/hooks/useGsapAnimation";
 import heroField from "@/assets/hero-field.jpg";
 import logo from "@/assets/logo.png";
-import fieldVideo from "@/assets/prewiev.MP4";
+import fieldVideo from "@/assets/prewiev.MOV";
 import { Calendar, CheckCircle2, BarChart3 } from "lucide-react";
 
 const problems = [
@@ -32,15 +32,15 @@ const advantages = [
 
 export default function Index() {
   const [scrolled, setScrolled] = useState(false);
-  
+
   const problemHeaderRef = useFadeInUp();
   const problemCardsRef = useStaggerFadeIn(0.1);
   const problemStatsRef = useStaggerFadeIn(0.15);
-  
+
   const audienceHeaderRef = useFadeInUp();
   const audienceCardsRef = useStaggerFadeIn(0.15);
   const audienceDemoRef = useFadeInUp(0.3);
-  
+
   const advantagesLeftRef = useFadeInUp(0.2);
   const advantagesRightRef = useStaggerFadeIn(0.1);
 
